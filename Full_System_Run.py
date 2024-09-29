@@ -13,6 +13,7 @@ def run_scripts():
     inverse_model_path = "Models/InverseV9.pt"
     
     day_directory = r'C:\Users\sa553\Desktop\230622_Data'
+    
     for flight_directory in os.listdir(day_directory):
 
         image_directory = os.path.join(day_directory, flight_directory, "IMAGES")

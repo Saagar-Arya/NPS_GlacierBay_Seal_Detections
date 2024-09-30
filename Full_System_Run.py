@@ -12,7 +12,7 @@ def run_scripts():
     color_model_path = "Models/ColorV9.pt"
     inverse_model_path = "Models/InverseV9.pt"
     
-    day_directory = r'C:\Users\sa553\Desktop\230622_Data'
+    day_directory = r'C:\Users\sa553\Desktop\230623_Data'
     
     for flight_directory in os.listdir(day_directory):
 

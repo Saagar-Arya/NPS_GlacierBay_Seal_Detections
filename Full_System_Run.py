@@ -12,27 +12,23 @@ def run_scripts():
     color_model_path = "Models/ColorV9.pt"
     inverse_model_path = "Models/InverseV9.pt"
     
-    trip_directory = r'D:\Projects\NPS_GlacierBay\2023\WingtraPilotProjects'
+    trip_directory = r'D:\Projects\NPS_GlacierBay\2024\WingtraPilotProjects'
     
     for tr_directory in os.listdir(trip_directory):
         day_directory = os.path.join(trip_directory,tr_directory)
-
         if (os.path.isdir(day_directory)):
-            
-            for flight_directory in os.listdir(day_directory):
-                image_directory = os.path.join(day_directory, flight_directory, "OUTPUT")
+            image_directory = os.path.join(day_directory, "OUTPUT")
+            if os.path.isdir(image_directory):
+                print(f"Processing directory: {image_directory}")
 
-                if os.path.isdir(image_directory):
-                    print(f"Processing directory: {image_directory}")
+                # run seal detections
+                log_file_path = Workflow.run_workflow(combined_model_path, color_model_path, inverse_model_path, image_directory,confidence)
 
-                    # run seal detections
-                    log_file_path = Workflow.run_workflow(combined_model_path, color_model_path, inverse_model_path, image_directory,confidence)
+                # draw seals on photos
+                # LOG.run_draw_log(log_file_path, image_directory)
 
-                    # draw seals on photos
-                    # LOG.run_draw_log(log_file_path, image_directory)
-
-                    # analyze seal locations & profile ice
-                    Analysis.run_ice_and_seal_analysis(log_file_path, image_directory)
+                # analyze seal locations & profile ice
+                Analysis.run_ice_and_seal_analysis(log_file_path, image_directory)
                 
     end_time = time.time()
     elapsed_time = end_time - start_time

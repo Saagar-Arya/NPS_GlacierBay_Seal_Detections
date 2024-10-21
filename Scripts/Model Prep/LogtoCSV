@@ -43,5 +43,5 @@ def log_to_csv(log_filename):
     print(f"CSV file created successfully at: {csv_filename}")
 
 # Usage
-log_path = r"C:\Users\sa553\Desktop\NPS\JHI_FullSurvey_75m_Survey1 Flight 01\Recomb\FinalFlightAnalysis (3) (0.85) LOG.txt"
+log_path = r"C:\Users\sa553\Desktop\NPS\JHI_FullSurvey_75m_Survey1 Flight 01\Recomb\FinalFlightAnalysis (7) (0.85) LOG.txt"
 log_to_csv(log_path)

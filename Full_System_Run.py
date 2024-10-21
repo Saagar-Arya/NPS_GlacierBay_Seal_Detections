@@ -7,7 +7,7 @@ import time
 def run_scripts():
     start_time = time.time()
 
-    combined_model_path = "Models/CombinedV11.pt"
+    combined_model_path = "Models/CombinedV13.pt"
     color_model_path = "Models/ColorV9.pt"
     inverse_model_path = "Models/InverseV9.pt"
     

@@ -15,9 +15,9 @@ import shutil
 import base64
 
 # directory of crops and polygons
-crops = r''
+crops = r'C:\Users\sa553\Desktop\NPS\Crops_Recombined\color_training_set'
 # directory of inverted crops and polygon files
-inverseCrops = r''
+inverseCrops = r'C:\Users\sa553\Desktop\NPS\Crops_Recombined\inverse_training_set'
 d = 640  # crop width/height (always square)
 
 

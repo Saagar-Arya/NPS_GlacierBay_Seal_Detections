@@ -9,8 +9,8 @@ Filters crops with only associated JSONS from subdirectories to a new directory
 import os
 import shutil
 
-dir_in = r''
-dir_out = r''
+dir_in = r'C:\Users\sa553\Desktop\NPS\Crops_Recombined\Crops_All_Source\David_Crops'
+dir_out = r'C:\Users\sa553\Desktop\NPS\Crops_Recombined\Crops_All_Filtered'
 
 def copy_images_with_json(dir_in, dir_out):
     # Ensure the output directory exists

@@ -7,15 +7,15 @@ import time
 def run_scripts():
     start_time = time.time()
 
-    combined_model_path = "Models/CombinedV13.pt"
-    color_model_path = "Models/ColorV9.pt"
-    inverse_model_path = "Models/InverseV9.pt"
+    combined_model_path = "Models/Combined17V3.pt"
+    color_model_path = "Models/ColorV17.pt"
+    inverse_model_path = "Models/InverseV17.pt"
     
     image_directory = r"C:\Users\sa553\Desktop\NPS\JHI_FullSurvey_75m_Survey1 Flight 01"
     
     # run seal detections
     confidence = .85
-    log_file_path = Workflow.run_workflow(combined_model_path, combined_model_path, combined_model_path, image_directory,confidence)
+    log_file_path = Workflow.run_workflow(combined_model_path, color_model_path, inverse_model_path, image_directory,confidence)
 
     # draw seals on photos
     LOG.run_draw_log(log_file_path, image_directory)

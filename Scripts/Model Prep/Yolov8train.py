@@ -6,7 +6,7 @@
    
    Meant for training the model. Create data with crops using 
    labelme2yolo --json_dir /path/to/labelme_json_dir/
-   labelme2yolo --json_dir /path/to/labelme_json_dir/ --val_size 0.2 --test_size 0.05
+   labelme2yolo --json_dir /path/to/labelme_json_dir/ --val_size 0.2 --test_size 0.1
    data=dataset.yaml
 
    """
@@ -33,30 +33,32 @@ Inverse = YOLO('yolov8s-seg.yaml')
 if __name__ == '__main__':
   
     resultsOne = Combined.train(
-    data=r'C:\Users\sa553\Desktop\NPS\Crops_Recombined\combined_training_set\YOLODataset\dataset.yaml',
+    data=r'C:\Users\sa553\Desktop\NPS\Crops_Recombined\color_training_set\YOLODataset\dataset.yaml',
     epochs=250,           # Increase the number of epochs for more training
     imgsz=640,
     batch=64,             # Adjust the batch size based on available GPU memory (start with 16)
-    name="CombinedV15",     #V10 cos True. V11 cos False. 
-    project=r'C:\Users\sa553\Desktop\NPS\Crops_Recombined\Models\Combined',
+    name="ColorV16",     #V10 cos True. V11 cos False. 
+    project=r'C:\Users\sa553\Desktop\NPS\Crops_Recombined\Models\Color',
     workers=8,            # Adjust the number of worker threads for data loading
     device='0',           # Utilize the GPU for training
-    lr0=0.01,            # Experiment with different initial learning rates
+    lr0=0.002,            # Experiment with different initial learning rates
     lrf=0.01,              # Experiment with different final learning rate factors
-    cos_lr=False,         # Enable cosine learning rate scheduler
+    cos_lr=True,         # Enable cosine learning rate scheduler
     warmup_epochs=5.0,    # Experiment with different warm-up epochs
-    box=7.5,              # Adjust the box loss gain
-    cls=0.5,              # Adjust the cls loss gain
+    box=6.0,              # Adjust the box loss gain
+    cls=1,              # Adjust the cls loss gain
     dfl=1.5,              # Adjust the dfl loss gain
     pose=12.0,             # Adjust the pose loss gain
     kobj=2.0,             # Adjust the keypoint obj loss gain
-    label_smoothing=0.0,  # Experiment with label smoothing
+    label_smoothing=0.1,  # Experiment with label smoothing
     nbs=64,               # Adjust nominal batch size based on GPU memory
     overlap_mask=True,    # Masks should overlap during training
     mask_ratio=4,         # Experiment with mask downsample ratio
     val=True,             # Enable validation during training
     plots=False,            # Disable saving plots and images during train/val
     patience=30,
+    # augment=True,
+    single_cls=True,
 )
 
 end_time = time.time()
